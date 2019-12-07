@@ -1,4 +1,11 @@
 import React from 'react'
+import styled from 'styled-components';
+
+const Title = styled.span`
+    font-family: DimaSogand;
+    font-size: 6rem;
+    color: red;
+`;
 
 export default function index({ children, title, styleClass }) {
     return (
@@ -6,8 +13,10 @@ export default function index({ children, title, styleClass }) {
             <div className="container-fluid">
                 <div className={`${styleClass} row align-items-center`}>
                     <div className="col text-center">
-                        <h1 className="text-light text-uppercase display-3 text-slanted" style={{ fontFamily: 'DimaSogand', fontSize: '6rem' }}>
-                            {title}
+                        <h1 className="text-light text-uppercase display-3">
+                            <Title>
+                                {title}
+                            </Title>
                         </h1>
                         {children}
                     </div>
