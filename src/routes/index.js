@@ -1,7 +1,7 @@
-import Home from "../components/Pages/Home";
-import Recipes from "../components/Pages/Recipes";
-import SingleRecipe from "../components/Pages/SingleRecipe";
-import Default from "../components/Pages/Default";
+import Home from "../Pages/Home";
+import Recipes from "../Pages/Recipes";
+import SingleRecipe from "../Pages/SingleRecipe";
+import Default from "../Pages/Default";
 
 const routes = [
   {
@@ -11,6 +11,7 @@ const routes = [
   },
   {
     path: "/recipes",
+    exact: true,
     component: Recipes
   },
   {

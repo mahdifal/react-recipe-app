@@ -21,3 +21,7 @@ body {
   background: linear-gradient(rgba(233, 5, 5, 0.377), rgba(221, 43, 43, 0.2)),
     url("./images/defaultBcg.jpeg") center/cover no-repeat;
 }
+
+.font-logo {
+  font-family: DimaSogand;
+}
