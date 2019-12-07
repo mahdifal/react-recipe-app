@@ -9,6 +9,8 @@ body {
   color: #f15025;
 }
 
-.letter-spacing {
-  letter-spacing: 0.5rem;
+.header-food {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)),
+    url("./images/homeBcg.jpeg") center/cover no-repeat;
 }
