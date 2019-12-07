@@ -3,7 +3,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  return <div>hello from our recipes</div>;
+  return <div>این یک تست فونت است.</div>;
 }
 
 export default App;

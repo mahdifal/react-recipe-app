@@ -1,9 +1,8 @@
 body {
-  font-family: "Open Sans", sans-serif !important;
-}
-
-.text-slanted {
-  font-family: "Courgette", cursive;
+  font-family: Vazir !important;
+  direction: rtl;
+  text-align: right;
+  background-color: #f5f5f5;
 }
 
 .text-orange {
