@@ -11,6 +11,7 @@ export default class Recipes extends Component {
         search: ''
     }
 
+
     handleChange = e => {
         this.setState({
             search: e.target.value
@@ -23,6 +24,8 @@ export default class Recipes extends Component {
     }
 
     render() {
+        console.log(this.state.recipes)
+
         return (
             <>
                 <NavBar />
