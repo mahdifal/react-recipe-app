@@ -13,6 +13,23 @@ export default class SingleRecipe extends Component {
             loading: false
         }
     }
+
+    async componentDidMount() {
+        // const url = ? call api
+        // https://someting.com/recipe_id=? this.state.id
+
+        // try{
+        //     const response = await fetch(url);
+        //     const responseData = await response.json(response);
+        //     this.setState({
+        //         recipe: responseData.recipe,
+        //         loading: 
+        //     })
+        // } catch(error) {
+        //     console.log(error)
+        // }
+    }
+
     render() {
         console.log(this.state.id)
         console.log(this.state.recipe)
