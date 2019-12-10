@@ -5,7 +5,7 @@ import "./App.css";
 import routes from "./routes";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
     <Router>
       <main>
@@ -17,6 +17,6 @@ function App() {
       </main>
     </Router>
   );
-}
+};
 
 export default App;

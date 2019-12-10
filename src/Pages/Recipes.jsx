@@ -1,41 +1,61 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import RecipeList from '../components/Recipe/RecipeList';
 import Search from '../components/Search';
 import NavBar from '../components/Navbar';
-import { recipeData } from '../data/tempList';
+import { recipeData } from '../data/recipesData';
+import Pagination from '../components/Pagination/Pagination';
 
-export default class Recipes extends Component {
+export default function Recipes() {
 
-    state = {
-        recipes: recipeData,
-        search: ''
-    }
+    const [recipes] = useState(recipeData)
+    const [search] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const [recipesPerPage] = useState(9);
+
+    // Get current post
+    const indexOfLastRecipe = currentPage * recipesPerPage;
+    const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
+    const currentRecipes = recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
+
+    // Change Page
+    const paginate = pageNumber => setCurrentPage(pageNumber);
 
 
-    handleChange = e => {
+    const handleChange = e => {
         this.setState({
             search: e.target.value
         })
     }
 
-    handleSubmit = e => {
+    const handleSubmit = e => {
         e.preventDefault();
 
     }
 
-    render() {
-        console.log(this.state.recipes)
+    return (
+        <>
+            <NavBar />
+            <Search
+                search={search}
+                handleChange={() => handleChange}
+                handleSubmit={() => handleSubmit}
+            />
 
-        return (
-            <>
-                <NavBar />
-                <Search
-                    search={this.state.search}
-                    handleChange={this.handleChange}
-                    handleSubmit={this.handleSubmit}
-                />
-                <RecipeList recipesData={this.state.recipes} />
-            </>
-        )
-    }
+            <RecipeList
+                recipesData={currentRecipes}
+            />
+
+            <div className="container">
+                <div className="row d-flex justify-content-center">
+
+                    <Pagination
+                        recipePerPage={recipesPerPage}
+                        totalRecipes={recipes.length}
+                        paginate={paginate}
+                    />
+                </div>
+            </div>
+        </>
+    )
+
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { recipeData } from '../data/tempDetails';
+import { recipeData } from '../data/recipesData';
 import NavBar from '../components/Navbar';
 import { Link } from 'react-router-dom';
 
@@ -31,13 +31,13 @@ export default class SingleRecipe extends Component {
     }
 
     render() {
-        console.log(this.state.id)
-        console.log(this.state.recipe)
-        const { image_url, publisher, publisher_url, source_url, title, ingredients } = this.state.recipe;
+        console.log(recipeData)
+        // console.log(this.state.recipe)
+        // const { image_url, publisher, publisher_url, source_url, title, ingredients } = this.state.recipe;
         return (
             <>
                 <NavBar />
-                {this.state.loading ?
+                {/* {this.state.loading ?
                     (< div className="container">
                         <div className="row">
                             <div className="col-10 mx-auto col-md-6 my-3">
@@ -92,7 +92,7 @@ export default class SingleRecipe extends Component {
                             </div>
                         </div>
                     )
-                }
+                } */}
 
             </>
         )

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default class index extends Component {
     render() {
-        const { image_url, title, source_url, publisher, recipe_id } = this.props.recipe;
+        const { image_url, title, source_url, id, publisher } = this.props.recipe;
         return (
             <div className="col-10 mx-auto col-md-6 col-lg-4 my-3">
                 <div className="card" style={{ height: '100%' }}>
@@ -21,7 +21,7 @@ export default class index extends Component {
                     </div>
                     <div className="card-footer">
                         <Link
-                            to={`/recipes/${recipe_id}`}
+                            to={`/recipes/${id}`}
                             className="btn btn-primary"
                         >
                             جزئیات

@@ -15,7 +15,7 @@ export default class RecipeList extends Component {
                     </div>
                     {/* end of title */}
                     <div className="row">
-                        {recipesData.map(recipe => (<Recipe key={recipe.recipe_id} recipe={recipe} />))}
+                        {recipesData.map(recipe => (<Recipe key={recipe.id} recipe={recipe} />))}
                     </div>
                 </div>
             </>
