@@ -15,6 +15,11 @@ export default class SingleRecipe extends Component {
     }
 
     async componentDidMount() {
+        console.log(this.state.id)
+        const { recipe, id } = this.state;
+        const recipeMap = recipe.filter(item => item.id === Number(id));
+        console.log(recipeMap)
+        // recipe.filter(recipeItem => recipeItem);
         // const url = ? call api
         // https://someting.com/recipe_id=? this.state.id
 
@@ -31,13 +36,13 @@ export default class SingleRecipe extends Component {
     }
 
     render() {
-        console.log(recipeData)
-        // console.log(this.state.recipe)
-        // const { image_url, publisher, publisher_url, source_url, title, ingredients } = this.state.recipe;
+        const { recipe, id } = this.state;
+        const recipeFilter = recipe.filter(item => item.id === Number(id));
+        const { image_url, publisher, source_url, title, ingredients, how_to_make } = recipeFilter[0];
         return (
             <>
                 <NavBar />
-                {/* {this.state.loading ?
+                {this.state.loading ?
                     (< div className="container">
                         <div className="row">
                             <div className="col-10 mx-auto col-md-6 my-3">
@@ -54,26 +59,18 @@ export default class SingleRecipe extends Component {
                                         to="/recipes"
                                         className="btn btn-warning mb-5"
                                     >
-                                        برگشت به صفحه دستورها
+                                        برگشت به صفحه غذاها
                                     </Link>
                                     <img
                                         src={image_url}
-                                        className="d-block -100"
+                                        className="img-fluid d-block -100"
                                         style={{ maxHeight: '30rem' }}
                                         alt="recipe"
                                     />
                                 </div>
                                 <div className="col-10 mx-auto col-md-6 my-3">
-                                    <h6>{title}</h6>
+                                    <h2>{title}</h2>
                                     <h6 className="text-warning">تهیه شده توسط: {publisher}</h6>
-                                    <a
-                                        href={publisher_url}
-                                        target="_blank"
-                                        className="btn btn-primary mt-2"
-                                        rel="noopener noreferrer"
-                                    >
-                                        صفحه انتشار دهنده
-                                    </a>
                                     <a
                                         href={source_url}
                                         target="_blank"
@@ -83,16 +80,26 @@ export default class SingleRecipe extends Component {
                                         صفحه صاحب دستور غذا
                                     </a>
                                     <ul className="list-group mt-4">
-                                        <h2 className="mt-3 mb-4">شرح دستور</h2>
-                                        {ingredients.map((item, index) => {
-                                            return (<li key={index} className="list-group-item">{item}</li>)
+                                        <h4 className="mt-3 mb-4">مواد لازم</h4>
+                                        {ingredients.map(item => {
+                                            return (<li key={item.id} className="list-group-item list-group-item-primary">{item}</li>)
                                         })}
                                     </ul>
+                                </div>
+                                <div className="col-10 mx-auto col-md-6 my-5">
+                                    <div className="col-mx-10 my-auto text-center">
+                                        <ul className="list-group list-group-flush">
+                                            <h3 className="mt-3 mb-4">روش پخت</h3>
+                                            {how_to_make.map(item => {
+                                                return (<li className="list-group-item list-group-item-warning">{item}</li>)
+                                            })}
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     )
-                } */}
+                }
 
             </>
         )

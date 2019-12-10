@@ -3,8 +3,12 @@ import { NavLink, Link } from 'react-router-dom';
 
 export default function index() {
     return (
-        <nav className="navbar navbar-expand-sm navbar-light gb-light">
-            <Link to='/' className="navbar-brand">My Logo</Link>
+        <nav className="navbar navbar-expand-sm fixed-top navbar-light bg-light">
+            <Link to='/' className="navbar-brand font-logo">
+                <span className="text-danger">
+                    ببین و بپز
+                </span>
+            </Link>
             <div className="collapse navbar-collapse show ml-sm-5">
                 <ul className="navbar-nav">
                     <li className="navbar-item">
