@@ -23,7 +23,7 @@ export default class SingleRecipe extends Component {
         return (
             <>
                 {this.state.loading ?
-                    (< div className="container">
+                    (< div className="container my-5">
                         <div className="row">
                             <div className="col-10 mx-auto col-md-6 my-3">
                                 <h2 className="text-orange text-center">
@@ -32,7 +32,7 @@ export default class SingleRecipe extends Component {
                             </div>
                         </div>
                     </div>) : (
-                        <div className="container my-5">
+                        <div className="container" style={{ marginTop: '4rem' }}>
                             <div className="row">
                                 <div className="col-10 mx-auto col-md-6 my-3">
                                     <Link
