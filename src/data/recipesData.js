@@ -70,7 +70,7 @@ export const recipeData = [
     source_url:
       "https://cookpad.com/ir/%D8%AF%D8%B3%D8%AA%D9%88%D8%B1%20%D8%BA%D8%B0%D8%A7/11155661-%D8%AC%D9%88%D8%AC%D9%87-%DA%A9%D8%A8%D8%A7%D8%A8-%D8%AA%D8%A7%D8%A8%D9%87-%D8%A7%DB%8C",
     image_url: "/assets/img/3.jpg",
-    publisher: "Amir",
+    publisher: "Fatimasoleymani1376",
     ingredients: [
       "۲ عدد سینه مرغ",
       "۲۰۰ گرم بال مرغ (میتونید کتف مرغ روهم جایگزین کنید)",

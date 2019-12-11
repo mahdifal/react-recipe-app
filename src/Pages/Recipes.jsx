@@ -8,7 +8,8 @@ import Pagination from '../components/Pagination/Pagination';
 export default function Recipes() {
 
     const [recipes] = useState(recipeData)
-    const [search] = useState('');
+    const [search, setSearch] = useState('');
+    const [searchResults, setSearchResults] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [recipesPerPage] = useState(9);
 
@@ -22,37 +23,41 @@ export default function Recipes() {
 
 
     const handleChange = e => {
-        this.setState({
-            search: e.target.value
-        })
+        setSearch(e.target.value)
     }
 
-    const handleSubmit = e => {
-        e.preventDefault();
-
-    }
+    React.useEffect(() => {
+        const results = currentRecipes.filter(item =>
+            item.title.trim().includes(search)
+        );
+        setSearchResults(results);
+    }, [search]);
 
     return (
         <>
             <NavBar />
             <Search
                 search={search}
-                handleChange={() => handleChange}
-                handleSubmit={() => handleSubmit}
+                handleChange={handleChange}
             />
 
             <RecipeList
-                recipesData={currentRecipes}
+                recipesData={searchResults}
             />
 
             <div className="container">
+                {
+                    console.log('result =>' + searchResults),
+                    console.log('recipes =>' + recipes)
+                }
                 <div className="row d-flex justify-content-center">
-
-                    <Pagination
-                        recipePerPage={recipesPerPage}
-                        totalRecipes={recipes.length}
-                        paginate={paginate}
-                    />
+                    {searchResults.length >= recipesPerPage &&
+                        <Pagination
+                            recipePerPage={recipesPerPage}
+                            totalRecipes={recipes.length}
+                            paginate={paginate}
+                        />
+                    }
                 </div>
             </div>
         </>
