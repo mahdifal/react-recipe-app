@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import RecipeList from '../components/Recipe/RecipeList';
 import Search from '../components/Search';
-import NavBar from '../components/Navbar';
 import { recipeData } from '../data/recipesData';
 import Pagination from '../components/Pagination/Pagination';
 
@@ -27,28 +26,27 @@ export default function Recipes() {
     }
 
     React.useEffect(() => {
-        const results = currentRecipes.filter(item =>
+        const results = recipes.filter(item =>
             item.title.trim().includes(search)
         );
         setSearchResults(results);
-    }, [search]);
+    }, [search.length]);
 
     return (
         <>
-            <NavBar />
             <Search
                 search={search}
                 handleChange={handleChange}
             />
 
             <RecipeList
-                recipesData={searchResults}
+                recipesData={currentRecipes}
             />
 
             <div className="container">
                 {
-                    console.log('result =>' + searchResults),
-                    console.log('recipes =>' + recipes)
+                    console.log(searchResults)
+                    // console.log(recipes)
                 }
                 <div className="row d-flex justify-content-center">
                     {searchResults.length >= recipesPerPage &&

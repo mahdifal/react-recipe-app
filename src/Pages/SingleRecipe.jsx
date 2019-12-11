@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { recipeData } from '../data/recipesData';
-import NavBar from '../components/Navbar';
 import { Link } from 'react-router-dom';
 import Lang from '../Utility/Lang';
 
@@ -23,7 +22,6 @@ export default class SingleRecipe extends Component {
         const { image_url, publisher, source_url, title, ingredients, how_to_make } = recipeFilter[0];
         return (
             <>
-                <NavBar />
                 {this.state.loading ?
                     (< div className="container">
                         <div className="row">

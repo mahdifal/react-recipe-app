@@ -1,28 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import ThemeContext from '../../Context/ThemeContext';
 
-export default function index() {
+export default function index({ children }) {
     return (
-        <nav className="navbar navbar-expand-sm fixed-top navbar-light bg-light">
-            <Link to='/' className="navbar-brand font-logo">
-                <span className="text-danger">
-                    ببین و بپز
+        <ThemeContext.Consumer>
+            {value =>
+                <nav className={`navbar navbar-expand-sm fixed-top navbar-${value} bg-${value}`}>
+                    <Link to='/' className="navbar-brand font-logo">
+                        <span className="text-danger">
+                            ببین و بپز
                 </span>
-            </Link>
-            <div className="collapse navbar-collapse show ml-sm-5">
-                <ul className="navbar-nav">
-                    <li className="navbar-item">
-                        <NavLink to='/' exact className="nav-link">
-                            خانه
+                    </Link>
+                    <div className="collapse navbar-collapse show ml-sm-5 mr-auto">
+                        <ul className="navbar-nav">
+                            <li className="navbar-item">
+                                <NavLink to='/' exact className="nav-link">
+                                    خانه
                     </NavLink>
-                    </li>
-                    <li className="navbar-item">
-                        <NavLink to="/recipes" className="nav-link">
-                            دستور غذا
+                            </li>
+                            <li className="navbar-item">
+                                <NavLink to="/recipes" className="nav-link">
+                                    دستور غذا
                     </NavLink>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+                            </li>
+                        </ul>
+                    </div>
+                    {children}
+                </nav>
+            }
+        </ThemeContext.Consumer>
     )
 }

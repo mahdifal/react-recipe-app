@@ -25,3 +25,11 @@ body {
 .font-logo {
   font-family: DimaSogand;
 }
+
+main {
+  background-color: #ffffff !important;
+}
+
+.theme-dark {
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}

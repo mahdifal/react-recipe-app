@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 
 export default class index extends Component {
     render() {
-        const { handleChange, handleSubmit, search } = this.props;
+        const { handleChange, search } = this.props;
         return (
-            <div className="container">
-                <div className="row">
+
+            <div className={`container`}>
+                <div className="row mt-3">
                     <div className="col-10 mx-auto col-md-8 mt-5 text-center">
                         <h1>
                             جستجوی دستور پخت غذا با <strong className="text-orange font-logo display-3">ببین و بپز</strong>
@@ -26,7 +27,6 @@ export default class index extends Component {
                                     <button
                                         type="submit"
                                         className="input-group-text bg-primary"
-                                        onClick={handleSubmit}
                                     >
                                         <i className="fas fa-search" style={{ color: 'white' }} />
                                     </button>
