@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import Lang from '../../Utility/Lang';
 
 export default function Pagination({ recipePerPage, totalRecipes, paginate }) {
+
+    const lang = new Lang();
 
     const pageNumbers = [];
 
@@ -15,7 +18,7 @@ export default function Pagination({ recipePerPage, totalRecipes, paginate }) {
                 {pageNumbers.map(number => (
                     <li className="page-item" key={number}>
                         <Link to="#-" className="page-link" onClick={() => paginate(number)}>
-                            {number}
+                            {lang.toPersian(number)}
                         </Link>
                     </li>
                 ))}

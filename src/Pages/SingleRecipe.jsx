@@ -2,37 +2,19 @@ import React, { Component } from 'react'
 import { recipeData } from '../data/recipesData';
 import NavBar from '../components/Navbar';
 import { Link } from 'react-router-dom';
+import Lang from '../Utility/Lang';
 
 export default class SingleRecipe extends Component {
     constructor(props) {
         super(props);
+        this.lang = new Lang;
+
         const id = this.props.match.params.id;
         this.state = {
             recipe: recipeData,
             id,
             loading: false
         }
-    }
-
-    async componentDidMount() {
-        console.log(this.state.id)
-        const { recipe, id } = this.state;
-        const recipeMap = recipe.filter(item => item.id === Number(id));
-        console.log(recipeMap)
-        // recipe.filter(recipeItem => recipeItem);
-        // const url = ? call api
-        // https://someting.com/recipe_id=? this.state.id
-
-        // try{
-        //     const response = await fetch(url);
-        //     const responseData = await response.json(response);
-        //     this.setState({
-        //         recipe: responseData.recipe,
-        //         loading: 
-        //     })
-        // } catch(error) {
-        //     console.log(error)
-        // }
     }
 
     render() {
@@ -82,7 +64,7 @@ export default class SingleRecipe extends Component {
                                     <ul className="list-group mt-4">
                                         <h4 className="mt-3 mb-4">مواد لازم</h4>
                                         {ingredients.map(item => {
-                                            return (<li key={item.id} className="list-group-item list-group-item-primary">{item}</li>)
+                                            return (<li key={item} className="list-group-item list-group-item-primary">{this.lang.toPersian(item)}</li>)
                                         })}
                                     </ul>
                                 </div>
@@ -91,7 +73,7 @@ export default class SingleRecipe extends Component {
                                         <ul className="list-group list-group-flush">
                                             <h3 className="mt-3 mb-4">روش پخت</h3>
                                             {how_to_make.map(item => {
-                                                return (<li className="list-group-item list-group-item-warning">{item}</li>)
+                                                return (<li key={item} className="list-group-item list-group-item-warning">{this.lang.toPersian(item)}</li>)
                                             })}
                                         </ul>
                                     </div>
