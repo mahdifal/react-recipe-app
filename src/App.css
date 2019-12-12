@@ -11,10 +11,12 @@ body {
 
 .header-food,
 .default-food {
-  min-height: 100vh;
+  overflow: hidden;
+  height: 100%;
+  position: fixed;
+  width: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)),
     url("./images/homeBcg.jpeg") center/cover no-repeat;
-  overflow-y: hidden;
 }
 
 .default-food {
