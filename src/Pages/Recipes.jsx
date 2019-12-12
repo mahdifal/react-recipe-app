@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import RecipeList from '../components/Recipe/RecipeList';
 import Search from '../components/Search';
 import { recipeData } from '../data/recipesData';
@@ -25,7 +25,7 @@ export default function Recipes() {
         setSearch(e.target.value)
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         const results = recipes.filter(item =>
             item.title.trim().includes(search)
         );
@@ -45,7 +45,7 @@ export default function Recipes() {
 
             <div className="container">
                 {
-                    console.log(searchResults)
+                    // console.log(searchResults)
                     // console.log(recipes)
                 }
                 <div className="row d-flex justify-content-center">

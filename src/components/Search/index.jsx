@@ -6,10 +6,13 @@ export default class index extends Component {
         return (
 
             <div className={`container`}>
-                <div className="row mt-3">
+                <div className="row mt-5">
                     <div className="col-10 mx-auto col-md-8 mt-5 text-center">
+                        <h2>
+                            جستجوی دستور پخت غذا با
+                        </h2>
                         <h1>
-                            جستجوی دستور پخت غذا با <strong className="text-orange font-logo display-3">ببین و بپز</strong>
+                            <strong className="text-orange font-logo display-3">ببین و بپز</strong>
                         </h1>
                         <form className="mt-4">
 
