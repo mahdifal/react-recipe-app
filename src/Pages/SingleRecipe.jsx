@@ -17,6 +17,7 @@ export default class SingleRecipe extends Component {
     }
 
     render() {
+        { window.scroll(0, 0) }
         const { recipe, id } = this.state;
         const recipeFilter = recipe.filter(item => item.id === Number(id));
         const { image_url, publisher, source_url, title, ingredients, how_to_make } = recipeFilter[0];
