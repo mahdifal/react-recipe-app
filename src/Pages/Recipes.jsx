@@ -32,27 +32,30 @@ export default function Recipes() {
         setSearchResults(results);
     }, [search.length]);
 
+
     return (
         <>
             <Search
                 search={search}
                 handleChange={handleChange}
             />
-
             <RecipeList
                 recipesData={currentRecipes}
             />
+            {/* <RecipeList
+                recipesData={currentRecipes}
+            /> */}
 
             <div className="container">
                 {
-                    // console.log(searchResults)
+                    console.log(searchResults)
                     // console.log(recipes)
                 }
                 <div className="row d-flex justify-content-center">
                     {searchResults.length >= recipesPerPage &&
                         <Pagination
                             recipePerPage={recipesPerPage}
-                            totalRecipes={recipes.length}
+                            totalRecipes={searchResults.length}
                             paginate={paginate}
                         />
                     }

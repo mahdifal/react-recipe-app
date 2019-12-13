@@ -12,7 +12,8 @@ export default class index extends Component {
                             جستجوی دستور پخت غذا با
                         </h2>
                         <h1>
-                            <strong className="text-orange font-logo display-3">ببین و بپز</strong>
+                            <strong className="text-orange font-logo display-3 ml-4">ببین و بپز</strong>
+                            <i className="fas fa-utensils fa-lg text-orange"></i>
                         </h1>
                         <form className="mt-4">
 
