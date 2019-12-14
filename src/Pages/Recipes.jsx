@@ -8,14 +8,14 @@ export default function Recipes() {
 
     const [recipes] = useState(recipeData)
     const [search, setSearch] = useState('');
-    const [searchResults, setSearchResults] = useState([]);
+    const [searchResults, setSearchResults] = useState(recipeData);
     const [currentPage, setCurrentPage] = useState(1);
-    const [recipesPerPage] = useState(9);
+    const [recipesPerPage] = useState(5);
 
     // Get current post
     const indexOfLastRecipe = currentPage * recipesPerPage;
     const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
-    const currentRecipes = recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
+    const currentRecipes = searchResults.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
     // Change Page
     const paginate = pageNumber => setCurrentPage(pageNumber);
@@ -29,9 +29,11 @@ export default function Recipes() {
         const results = recipes.filter(item =>
             item.title.trim().includes(search)
         );
+
+        console.log({ search, recipes, results });
+
         setSearchResults(results);
     }, [search.length]);
-
 
     return (
         <>
@@ -39,16 +41,14 @@ export default function Recipes() {
                 search={search}
                 handleChange={handleChange}
             />
+
             <RecipeList
                 recipesData={currentRecipes}
             />
-            {/* <RecipeList
-                recipesData={currentRecipes}
-            /> */}
 
             <div className="container">
                 {
-                    console.log(searchResults)
+                    // console.log(searchResults)
                     // console.log(recipes)
                 }
                 <div className="row d-flex justify-content-center">
