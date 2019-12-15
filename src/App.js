@@ -9,6 +9,7 @@ import SwitchTheme from "./components/SwitchTheme";
 const App = () => {
   const getTheme = () =>
     JSON.parse(localStorage.getItem("recipe-theme")) || "light";
+
   const [theme, setTheme] = useState(getTheme);
 
   const changeTheme = e => {

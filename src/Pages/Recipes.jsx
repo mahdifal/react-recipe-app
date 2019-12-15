@@ -29,9 +29,6 @@ export default function Recipes() {
         const results = recipes.filter(item =>
             item.title.trim().includes(search)
         );
-
-        console.log({ search, recipes, results });
-
         setSearchResults(results);
     }, [search.length]);
 
@@ -47,10 +44,6 @@ export default function Recipes() {
             />
 
             <div className="container">
-                {
-                    // console.log(searchResults)
-                    // console.log(recipes)
-                }
                 <div className="row d-flex justify-content-center">
                     {searchResults.length >= recipesPerPage &&
                         <Pagination
