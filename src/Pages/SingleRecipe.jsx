@@ -8,7 +8,7 @@ import ThemeContext from '../Context/ThemeContext';
 export default class SingleRecipe extends Component {
     constructor(props) {
         super(props);
-        this.lang = new Lang;
+        this.lang = new Lang();
 
         const id = this.props.match.params.id;
         this.state = {
@@ -25,11 +25,11 @@ export default class SingleRecipe extends Component {
                 loading: false
             })
         }, 1200)
+        window.scroll(0, 0)
     }
 
     render() {
         const { loading } = this.state;
-        { window.scroll(0, 0) }
         const { recipe, id } = this.state;
         const recipeFilter = recipe.filter(item => item.id === Number(id));
         const { image_url, publisher, source_url, title, ingredients, how_to_make } = recipeFilter[0];
